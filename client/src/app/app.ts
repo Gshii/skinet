@@ -10,7 +10,7 @@ import { ShopComponent } from './features/shop/shop.component';
 
 @Component({
   selector: 'app-root',
-  imports: [MatSlideToggleModule, Header, ShopComponent],
+  imports: [MatSlideToggleModule, Header, ShopComponent, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
