@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Test Error Component</h1>
+  <button mat-button (click)="get404Error()">Get 404 Error</button>
+  <button mat-button (click)="get500Error()">Get 500 Error</button>
+  <button mat-button (click)="get400Error()">Get 400 Error</button>
+  <button mat-button (click)="get401Error()">Get 401 Error</button>
+  <button mat-button (click)="get400ValidationError()">Get 400 Validation Error</button>
+</div>
+
+@if (validationErrors) {
+  <div class="mx-auto max-w-lg mt-5 bg-red-100">
+    <h2>Validation Errors</h2>
+    <ul class="space-y-2 p-2">
+      @for (error of validationErrors; track $index) {
+        <li>{{ error }}</li>
+      }
+    </ul>
+  </div>
+}
