@@ -9,15 +9,23 @@
           <h1 class="text-2xl font-semibold text-gray-900">
             {{ product.name }}
           </h1>
+
+          <p>You have {{ quantityInCart }} of this in your cart</p>
+
           <div class="mt-4 items-center gap-4 flex">
             <p class="text-3xl font-extrabold text-gray-900">
               {{ product.price | currency: 'UAH' : 'symbol-narrow' }}
             </p>
           </div>
           <div class="flex gap-4 mt-6">
-            <button mat-flat-button class="min-h-14">
+            <button
+              mat-flat-button
+              class="min-h-14"
+              (click)="updateCart()"
+              [disabled]="quantity === quantityInCart"
+            >
               <mat-icon>shopping_cart</mat-icon>
-              Add to cart
+              {{ getButtonText() }}
             </button>
 
             <mat-form-field appearance="outline" class="flex">
@@ -26,7 +34,7 @@
                 matInput
                 type="number"
                 min="1"
-                value="1"
+                [(ngModel)]="quantity"
                 class="[&::-webkit-inner-spin-button]:appearance-none"
               />
             </mat-form-field>
